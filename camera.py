@@ -1,4 +1,4 @@
-from .vec import Vec2
+from vector import Vec2
 
 
 class Camera:

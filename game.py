@@ -23,7 +23,7 @@ class Game:
         
         self.camera = camera.Camera()
         self.player_ship = sprites.PlayerShip()
-        self.camera.center_on(self.player_ship.position)
+        self.camera.center_on(self.player_ship.position, 0.0, self.SCREEN_SIZE)
     
     def handle_event(self, event):
         if event.type == QUIT:
@@ -34,7 +34,7 @@ class Game:
     def update(self):
         self.camera.update(self.FPS)
         self.player_ship.update()
-        self.camera.center_on(self.player_ship.position)
+        self.camera.center_on(self.player_ship.position, 1.0, self.SCREEN_SIZE)
     
     def draw(self):
         self.player_ship.draw(self.screen, self.camera)

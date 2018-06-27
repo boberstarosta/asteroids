@@ -4,7 +4,10 @@ import math
 
 class Vec2:
     def __init__(self, *args):
-        if len(args) == 1: # if there's one argument, it should be a 2-element iterable
+        if len(args) == 0:  # if there are no arguments, init 0,0
+            self.x = 0.0
+            self.y = 0.0
+        elif len(args) == 1: # if there's one argument, it should be a 2-element iterable
             a = tuple(args[0])
             assert len(a) == 2, "Argument length is not 2"
             self.x = float(a[0])

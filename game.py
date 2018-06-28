@@ -3,7 +3,7 @@
 import pygame
 from pygame.locals import *
 
-import camera, sprites
+import camera, sprites, stars
 
 
 # ======================= Game class: =======================
@@ -22,6 +22,7 @@ class Game:
         pygame.display.set_caption("asteroids")
         
         self.camera = camera.Camera()
+        self.stars = stars.BackgroundStars()
         self.player_ship = sprites.PlayerShip()
         self.camera.center_on(self.player_ship.position, 0.0, self.SCREEN_SIZE)
     
@@ -34,9 +35,11 @@ class Game:
     def update(self):
         self.camera.update(self.FPS)
         self.player_ship.update()
+        self.stars.update(self.SCREEN_SIZE, self.camera)
         self.camera.center_on(self.player_ship.position, 1.0, self.SCREEN_SIZE)
     
     def draw(self):
+        self.stars.draw(self.screen, self.camera)
         self.player_ship.draw(self.screen, self.camera)
     
     def run(self):

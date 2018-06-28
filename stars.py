@@ -5,8 +5,8 @@ from pygame.locals import *
 
 class BackgroundStars:
     def __init__(self):
-        self.width = 128
-        self.height = 128
+        self.width = 32
+        self.height = 32
         self.tile_size = 256
         self.tiles = []
         for x in range(self.width):
